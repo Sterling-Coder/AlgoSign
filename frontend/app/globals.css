@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  /* Light — "Chalk & forest" (kept as the light option) */
+  --color-chalk: #f7f8f5;
+  --color-paper: #ffffff;
+  --color-mist: #edefe9;
+  --color-line: #e0e3d9;
+  --color-sage: #7e887e;
+  --color-ink: #161a16;
+  --color-forest: #3b6d11;
+  --color-forest-soft: #eaf1e1;
+  --color-brick: #a8432c;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+}
+
+/* Night — premium near-black terminal (the default) */
+html.dark {
+  --color-chalk: #0a0b0a;
+  --color-paper: #121412;
+  --color-mist: #1a1d1a;
+  --color-line: #262b26;
+  --color-sage: #8a948a;
+  --color-ink: #eef0ea;
+  --color-forest: #5ec368;
+  --color-forest-soft: #15251a;
+  --color-brick: #ef6a4d;
+}
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-variant-numeric: tabular-nums;
+  /* subtle atmosphere — faint top glow toward the accent */
+  background-image: radial-gradient(
+    120% 60% at 50% -10%,
+    color-mix(in srgb, var(--color-forest) 7%, transparent),
+    transparent 60%
+  );
+  background-attachment: fixed;
+}
+
+/* Distinctive display type for the wordmark + headings */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--color-forest);
+  color: #04130a;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
